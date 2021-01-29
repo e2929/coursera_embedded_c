@@ -37,7 +37,8 @@ void main() {
 	//print_array(test, SIZE);
 	//unsigned char max = find_maximum(test, SIZE);
 	//printf("Maximum: %u\n", max);
-	
+	unsigned char min = find_minimum(test, SIZE);
+	printf("Minimum: %u\n", min);
 }
 
 /* Add other Implementation File Code Here */
@@ -48,7 +49,7 @@ unsigned char find_maximum(unsigned char * arr, unsigned int length) {
 	
 	unsigned char max = arr[0];
 	
-	for (int i = 0; i < length; i++) {
+	for (int i = 1; i < length; i++) {
 		
 		if (max < arr[i]) max = arr[i];
 		
@@ -58,7 +59,19 @@ unsigned char find_maximum(unsigned char * arr, unsigned int length) {
 	
 }
 
-unsigned char find_minimum(unsigned char * arr, unsigned int length);
+unsigned char find_minimum(unsigned char * arr, unsigned int length) {
+		
+	unsigned char min = arr[0];
+	
+	for (int i = 1; i < length; i++) {
+		
+		if (min > arr[i]) min = arr[i];
+		
+	}
+	
+	return min;
+
+}
 
 unsigned char find_mean(unsigned char * arr, unsigned int length);
 
