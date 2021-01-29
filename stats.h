@@ -83,6 +83,18 @@ unsigned char find_mean(unsigned char * arr, unsigned int length);
 unsigned char find_median(unsigned char * arr, unsigned int length);
 
 /**
+ * @brief <Returns the sum of values in array>
+ *
+ * <Given an array of data and a length, returns the sum of all values>
+ *
+ * @param <unsigned char * arr> <The array>
+ * @param <unsigned int n> <The length of the array>
+ *
+ * @return <unsigned int>
+ */
+unsigned int find_sum(unsigned char * arr, unsigned int length);
+
+/**
  * @brief <Prints an array>
  *
  * <Given an array of data and a length, prints the array to the screen>
