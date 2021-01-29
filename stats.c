@@ -21,6 +21,7 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -39,14 +40,20 @@ void main() {
 	//printf("Maximum: %u\n", max);
 	//unsigned char min = find_minimum(test, SIZE);
 	//printf("Minimum: %u\n", min);
-	unsigned char mean = find_mean(test, SIZE);
-	printf("Mean %u\n", mean);
+	//unsigned char mean = find_mean(test, SIZE);
+	//printf("Mean %u\n", mean);
+	sort_array(test, SIZE);
+	print_array(test, SIZE);
 	
 }
 
 /* Add other Implementation File Code Here */
 
-int comp(const void * elem1, const void * elem2);
+int comp(const void * elem1, const void * elem2) {	
+	
+	return ( *(int *)elem1 - *(int *)elem2);
+	
+}
 
 unsigned char find_maximum(unsigned char * arr, unsigned int length) {
 	
@@ -113,4 +120,10 @@ void print_array(unsigned char * arr, unsigned int n) {
 
 void print_statistics(unsigned char * arr);
 
-void sort_array(unsigned char * arr, unsigned int length);
+void sort_array(unsigned char * arr, unsigned int length) {
+	
+	//unsigned char art[4] = {12, 45, 2, 7};
+	qsort(arr, sizeof(arr) / sizeof(*arr), sizeof(*arr), comp);
+	//print_array(art, 4);
+	
+}
