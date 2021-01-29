@@ -9,13 +9,12 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file <stats.c> 
+ * @brief <implementation file for first Coursera assignment >
  *
- * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author <Edwin Lantigua >
+ * @date <01/28/20 >
  *
  */
 
@@ -34,10 +33,47 @@ void main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
-
+								
+	//print_array(test, SIZE);
+	//unsigned char max = find_maximum(test, SIZE);
+	//printf("Maximum: %u\n", max);
+	
 }
 
 /* Add other Implementation File Code Here */
+
+int comp(const void * elem1, const void * elem2);
+
+unsigned char find_maximum(unsigned char * arr, unsigned int length) {
+	
+	unsigned char max = arr[0];
+	
+	for (int i = 0; i < length; i++) {
+		
+		if (max < arr[i]) max = arr[i];
+		
+	}
+	
+	return max;
+	
+}
+
+unsigned char find_minimum(unsigned char * arr, unsigned int length);
+
+unsigned char find_mean(unsigned char * arr, unsigned int length);
+
+unsigned char find_median(unsigned char * arr, unsigned int length);
+	
+void print_array(unsigned char * arr, unsigned int n) {
+	
+	for (int i = 0; i < n; i++) {
+		printf("[%d]: %u\n", i, arr[i]);
+	}
+		
+	return;
+	
+}
+
+void print_statistics(unsigned char * arr);
+
+void sort_array(unsigned char * arr, unsigned int length);
