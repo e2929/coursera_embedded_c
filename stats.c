@@ -51,7 +51,11 @@ void main() {
 
 int comp(const void * elem1, const void * elem2) {	
 	
-	return ( *(int *)elem1 - *(int *)elem2);
+	unsigned char e1 = (*(unsigned char *)elem1);
+	unsigned char e2 = (*(unsigned char *)elem2);
+	
+	if (e1 >= e2) return 1;
+	return -1;
 	
 }
 
@@ -106,9 +110,9 @@ unsigned int find_sum(unsigned char * arr, unsigned int length) {
 	
 }
 
-void print_array(unsigned char * arr, unsigned int n) {
+void print_array(unsigned char * arr, unsigned int length) {
 	
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < length; i++) {
 		
 		printf("[%d]: %u\n", i, arr[i]);
 	
@@ -122,8 +126,6 @@ void print_statistics(unsigned char * arr);
 
 void sort_array(unsigned char * arr, unsigned int length) {
 	
-	//unsigned char art[4] = {12, 45, 2, 7};
-	qsort(arr, sizeof(arr) / sizeof(*arr), sizeof(*arr), comp);
-	//print_array(art, 4);
+	qsort(arr, length / sizeof(*arr), sizeof(*arr), comp);
 	
 }
