@@ -42,8 +42,10 @@ void main() {
 	//printf("Minimum: %u\n", min);
 	//unsigned char mean = find_mean(test, SIZE);
 	//printf("Mean %u\n", mean);
-	sort_array(test, SIZE);
-	print_array(test, SIZE);
+	//sort_array(test, SIZE);
+	//print_array(test, SIZE);
+	unsigned char median = find_median(test, SIZE);
+	printf("Median: %u\n", median);
 	
 }
 
@@ -94,7 +96,41 @@ unsigned char find_mean(unsigned char * arr, unsigned int length) {
 	
 }
 
-unsigned char find_median(unsigned char * arr, unsigned int length);
+unsigned char find_median(unsigned char * arr, unsigned int length) {
+	
+	unsigned char median = 0;
+	
+	// make a copy of array, sort copied array
+	unsigned char temp_arr[length];
+	for (int i = 0; i < length; i++) {
+			
+			temp_arr[i] = arr[i];
+			
+	}
+	sort_array(temp_arr, length);
+	
+	// calculate median based on sorted temp array
+	unsigned int median_index = length / 2;
+	
+	// if length is odd, median is middle value; if length is odd, median is avg of middle values
+	if (length % 2 == 0) {
+		
+		median_index = length / 2;
+		
+		median = (temp_arr[median_index] + temp_arr[median_index - 1]) / 2;
+		
+	} else {
+		
+		median = temp_arr[median_index];
+	
+	}
+	
+	printf("Median index: %u\n", median_index);
+	print_array(temp_arr, length);
+	
+	return median;
+	
+}
 
 unsigned int find_sum(unsigned char * arr, unsigned int length) {
 	
