@@ -125,9 +125,6 @@ unsigned char find_median(unsigned char * arr, unsigned int length) {
 	
 	}
 	
-	printf("Median index: %u\n", median_index);
-	print_array(temp_arr, length);
-	
 	return median;
 	
 }
