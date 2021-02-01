@@ -61,6 +61,24 @@ int comp(const void * elem1, const void * elem2) {
 	
 }
 
+unsigned char * copy_array(unsigned char * arr, unsigned int length) {
+	
+	// manually allocate memory for copy array
+	unsigned char * copy = malloc(length);
+	
+	// check memory 
+	if (!copy) return NULL;
+	
+	// copy over each value
+	for (int i = 0; i < length; i++) {
+		
+			copy[i] = arr[i];
+			
+	}
+	
+	return copy;
+}
+
 unsigned char find_maximum(unsigned char * arr, unsigned int length) {
 	
 	unsigned char max = arr[0];
@@ -101,12 +119,7 @@ unsigned char find_median(unsigned char * arr, unsigned int length) {
 	unsigned char median = 0;
 	
 	// make a copy of array, sort copied array
-	unsigned char temp_arr[length];
-	for (int i = 0; i < length; i++) {
-			
-			temp_arr[i] = arr[i];
-			
-	}
+	unsigned char * temp_arr = copy_array(arr, length);
 	sort_array(temp_arr, length);
 	
 	// calculate median based on sorted temp array
@@ -124,6 +137,9 @@ unsigned char find_median(unsigned char * arr, unsigned int length) {
 		median = temp_arr[median_index];
 	
 	}
+	
+	// manually dealllocate memory from temp_arr
+	free(temp_arr);
 	
 	return median;
 	
