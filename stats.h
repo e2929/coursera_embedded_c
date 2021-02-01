@@ -35,6 +35,18 @@
 int comp(const void * elem1, const void * elem2);
 
 /**
+ * @brief <Returns a copy of unsigned char array>
+ *
+ * <Given an array of data and a length, returns a copy of the array>
+ *
+ * @param <unsigned char * arr> <The array>
+ * @param <unsigned int length> <The length of the array>
+ *
+ * @return <unsigned car *, copy of the array>
+ */
+unsigned char * copy_array(unsigned char * arr, unsigned int length);
+
+/**
  * @brief <Returns the max value in array>
  *
  * <Given an array of data and a length, returns the maximum>
