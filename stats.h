@@ -23,9 +23,9 @@
 /* Add Your Declarations and Function Comments here */ 
 
 /**
- * @brief <Returns the max value in array>
+ * @brief <A compare function. Largest to smallest order)>
  *
- * <Given an array of data and a length, returns the maximum>
+ * <Given two pointers elem1 and elem2, if elem1 is <= elem2, return 1, otherwise -1 (largest to smallest)>
  *
  * @param <const void * elem1> <first element>
  * @param <const void * elem1> <second element>
@@ -127,7 +127,7 @@ void print_array(unsigned char * arr, unsigned int length);
  *
  * @return <Void>
  */
-void print_statistics(unsigned char * arr);
+void print_statistics(unsigned char * arr, unsigned int length);
 
 /**
  * @brief <Sorts an array>
