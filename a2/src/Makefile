@@ -24,18 +24,40 @@
 include sources.mk
 
 # Platform Overrides
-PLATFORM = 
+PLATFORM ?= HOST
+
 
 # Architectures Specific Flags
-LINKER_FILE = 
-CPU = 
+LINKER_FILE = ../msp432p401r.lds
+CPU = cortex-m4
 ARCH = 
 SPECS = 
 
 # Compiler Flags and Defines
-CC = 
+CC = gcc
 LD = 
 LDFLAGS = 
-CFLAGS = 
-CPPFLAGs = 
+CFLAGS = -Wall -Werror -g -O0 -std=c99
+CPPFLAGs = -E
+TARGET = c1m2
+
+# Here, we are defining a variable OBJS. 
+# This will go through every word in the sources list, and replace any .c ending with a .o ending.
+OBJS = $($(PLATFORM)_SRCS:.c=.o)
+
+%.o : %.c
+	$(CC) -c $< $(CFLAGS) -o $@
+	
+.PHONY: build
+build: all
+
+.PHONY: all
+all: $(TARGET).out
+
+$(TARGET).out: $(OBJS)
+	$(CC) $(OBJS) $(CFLAGS) $(LDFLAGS) -o $@
+
+.PHONY: clean
+clean:
+	rm -f $(OBJS) $(TARGET).out $(TARGET).map $(TARGET).asm
 
